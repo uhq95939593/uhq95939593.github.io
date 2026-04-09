@@ -1,0 +1,1305 @@
+﻿    @import"https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";@import"https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lexend:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap";@import"https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap";:root {
+    --menu-color: 0, 75, 30;
+    /* NEW menu position variables */
+    --menu-x: 50vw;
+    --menu-y: 50%;
+
+}
+
+.Desc {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    bottom: 4vw;
+    transform: translate(-50%);
+    width: auto;
+    height: 1.3021vw;
+    background-color: #000c;
+    border-radius: .2604vw;
+    padding: 14px;
+    font-family: Inter;
+    font-weight: 180;
+    font-size: .651vw;
+    color: #fff;
+    justify-content: center;
+    align-items: center
+}
+
+.Desc span {
+    margin-bottom: .0521vw
+}
+
+.PWrapper {
+    position: absolute;
+    display: flex;
+
+    left: var(--menu-x);
+    top: var(--menu-y);
+    transform: translate(5%, 5%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Inter
+}
+
+.PWrapper .PElements {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw
+}
+
+/* === SCROLLBAR CONTAINER === */
+.PWrapper .PElements .PScroll {
+    position: absolute;
+    display: flex;
+    right: -1vw;                  /* moved slightly right */
+    
+    width: .72vw;                 /* THICKER SCROLLBAR */
+    height: 100%;
+    background: #050505e6;        /* cleaner dark background */
+    
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    gap: .15vw;
+
+    border-radius: .20vw;
+
+    /* embedded, carved look */
+    box-shadow:
+        inset 0 0 .22vw rgba(0,0,0,0.8),
+        0 0 .35vw rgba(0,0,0,0.5);
+}
+
+/* === ARROW ICONS (UP/DOWN) === */
+.PWrapper .PElements .PScroll i {
+    font-size: .62vw;
+    color: rgba(255,255,255,0.75);
+    opacity: 0.85;
+
+    /* makes sure arrows don’t clip */
+    margin-top: .15vw;
+    margin-bottom: .15vw;
+
+    text-shadow: 0 0 .25vw rgba(0,0,0,0.8);
+}
+
+/* === SCROLLABLE ZONE (track) === */
+.PWrapper .PElements .PScroll .PSProgressWrapper {
+    position: relative;
+    display: flex;
+
+    width: .32vw;                 /* thicker track */
+    height: 90%;
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* === SCROLLBAR THUMB (moving bar) === */
+.PWrapper .PElements .PScroll .PSProgress {
+    position: relative;
+    display: flex;
+
+    width: .32vw;                 /* matches thicker track */
+    margin-top: .20vw;
+
+    background: rgb(var(--menu-color));
+    border-radius: .20vw;
+
+    /* Clean neon green glow */
+    box-shadow:
+        0 0 .25vw rgba(var(--menu-color),0.9),
+        0 0 .15vw rgba(var(--menu-color),0.8);
+
+    transition: top .25s ease, height .25s ease;
+}
+
+
+.PWrapper .PElements .PRightElements {
+    position: relative;
+    display: flex;
+    width: 19.0104vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+.PWrapper .PBanner {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 6.2vw; /* Slight bump from 5.4688vw */
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: .4167vw;
+    border-top-right-radius: .4167vw;
+    overflow: hidden;
+}
+
+.PWrapper .PBanner img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.PWrapper .PCategories {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1.5625vw;
+    margin-bottom: .2604vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #000;
+    border-left: .0521vw solid black;
+    border-right: .0521vw solid black;
+    border-bottom: .0521vw solid black;
+    border-bottom-left-radius: .3125vw;
+    border-bottom-right-radius: .3125vw;
+    overflow: hidden
+}
+
+.PWrapper .PCategories .PCategory {
+    position: relative;
+    display: flex;
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: .65vw;
+    font-weight: 300;
+    color: #fff;
+    border-bottom-left-radius: .3125vw;
+    border-bottom-right-radius: .3125vw
+}
+
+.PWrapper .PCategories .PCategory.active {
+    background: linear-gradient(0deg,rgba(var(--menu-color),10) 0%,rgba(var(--menu-color),.1) 100%)
+}
+
+.PWrapper .PCategories .PCategory:only-child {
+    position: absolute;
+    display: flex;
+    left: 0vw;
+    font-size: .625vw;
+    padding: 0 .8vw;
+    justify-content: flex-start
+}
+
+.PWrapper .PCategories .PCategory:last-child {
+    border-right: none
+}
+
+.PWrapper .PTabs {
+    position: relative;
+    display: flex;
+    width: 19.0104vw;
+    height: auto;
+    max-height: 14.0625vw;
+    padding-bottom: .0521vw;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0009;
+    border-radius: .3125vw;
+    overflow-y: hidden
+}
+
+.PWrapper .PTabs .PTab {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1.5625vw;
+    min-height: 1.5625vw;
+    max-height: 1.5625vw;
+    justify-content: center;
+    align-items: center
+}
+
+.PWrapper .PTabs .PTab .PTLabel {
+    position: absolute;
+    display: block;
+    left: .5vw;
+    width: 60%;
+    height: 60%;
+    font-size: .625vw;
+    font-weight: 300;
+    color: #fff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center
+}
+
+.PWrapper .PTabs .PTab .PTDLabel {
+    position: absolute;
+    display: flex;
+    left: .5vw;
+    font-size: .625vw;
+    color: #fff
+}
+
+.PWrapper .PTabs .PTab i {
+    position: absolute;
+    display: flex;
+    right: .65vw;
+    font-size: .625vw;
+    color: #fff
+}
+
+.PWrapper .PTabs .PTab .TOptions {
+    position: absolute;
+    display: flex;
+    right: .65vw;
+    width: 7.8125vw;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    gap: .5208vw
+}
+
+.PWrapper .PTabs .PTab .TOptions .Scrollable {
+    position: relative;
+    display: flex;
+    right: .15vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw;
+    font-size: .625vw;
+    font-weight: 250;
+    color: #fff
+}
+
+/* ============================================================
+   ROUNDED PILL — ENGRAVED CHECKBOX (PRIMARY)
+   ============================================================ */
+.PWrapper .PTabs .PTab .TOptions .Checkbox {
+    position: relative;
+    display: flex;
+    right: 0vw;
+    width: 1.5625vw;
+    height: .7813vw;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: #1a1a1a;
+
+    /* Engraved / sunken pill track */
+    box-shadow:
+        inset 0 .10vw .25vw rgba(0,0,0,0.8),
+        inset 0 -.10vw .20vw rgba(255,255,255,0.05),
+        inset .10vw 0 .25vw rgba(0,0,0,0.85),
+        inset -.10vw 0 .25vw rgba(255,255,255,0.05);
+
+    border-radius: 999vw;
+    transition: .25s ease;
+}
+
+.PWrapper .PTabs .PTab .TOptions .Checkbox.Checked {
+    background: rgba(var(--menu-color), 0.9);
+
+    /* Engraved but glowing */
+    box-shadow:
+        inset 0 .10vw .25vw rgba(0,0,0,0.9),
+        inset 0 -.10vw .20vw rgba(255,255,255,0.05),
+        inset .10vw 0 .25vw rgba(0,0,0,0.9),
+        inset -.10vw 0 .25vw rgba(255,255,255,0.04),
+        0 0 .32vw rgba(var(--menu-color), 0.45);
+}
+
+.PWrapper .PTabs .PTab .TOptions .Checkbox.Checked .Inside {
+    left: .95vw;
+}
+
+.PWrapper .PTabs .PTab .TOptions .Checkbox .Inside {
+    position: absolute;
+    display: flex;
+    left: .15vw;
+    width: .4167vw;
+    height: .4167vw;
+
+    background: #e8e8e8;
+
+    /* Bulging knob look */
+    box-shadow:
+        0 .05vw .10vw rgba(0,0,0,0.6),
+        0 -.03vw .08vw rgba(255,255,255,0.35),
+        inset 0 .03vw .06vw rgba(255,255,255,0.60),
+        inset 0 -.03vw .06vw rgba(0,0,0,0.45);
+
+    border-radius: 999vw;
+    transition: .25s ease;
+}
+
+
+/* ============================================================
+   ROUNDED PILL — ENGRAVED CHECKBOX (SECOND SET)
+   ============================================================ */
+.PWrapper .PTabs .PTab .Checkbox {
+    position: absolute;
+    display: flex;
+    right: .65vw;
+    width: 1.5625vw;
+    height: .7813vw;
+    justify-content: flex-start;
+    align-items: center;
+
+    background: #1a1a1a;
+
+    /* Engraved / carved depth */
+    box-shadow:
+        inset 0 .10vw .25vw rgba(0,0,0,0.8),
+        inset 0 -.10vw .20vw rgba(255,255,255,0.05),
+        inset .10vw 0 .25vw rgba(0,0,0,0.85),
+        inset -.10vw 0 .25vw rgba(255,255,255,0.05);
+
+    border-radius: 999vw;
+    transition: .25s ease;
+}
+
+.PWrapper .PTabs .PTab .Checkbox.Checked {
+    background: rgba(var(--menu-color), 0.9);
+
+    box-shadow:
+        inset 0 .10vw .25vw rgba(0,0,0,0.9),
+        inset 0 -.10vw .20vw rgba(255,255,255,0.05),
+        inset .10vw 0 .25vw rgba(0,0,0,0.9),
+        inset -.10vw 0 .25vw rgba(255,255,255,0.04),
+        0 0 .32vw rgba(var(--menu-color), 0.45);
+}
+
+.PWrapper .PTabs .PTab .Checkbox.Checked .Inside {
+    left: .95vw;
+}
+
+.PWrapper .PTabs .PTab .Checkbox .Inside {
+    position: absolute;
+    display: flex;
+    left: .15vw;
+    width: .4167vw;
+    height: .4167vw;
+
+    background: #e8e8e8;
+
+    /* Raised / bulging knob */
+    box-shadow:
+        0 .05vw .10vw rgba(0,0,0,0.6),
+        0 -.03vw .08vw rgba(255,255,255,0.35),
+        inset 0 .03vw .06vw rgba(255,255,255,0.60),
+        inset 0 -.03vw .06vw rgba(0,0,0,0.45);
+
+    border-radius: 999vw;
+    transition: .25s ease;
+}
+
+
+/* ============================================================
+   SLIDER (NOT EMBOSSED YET — TELL ME IF YOU WANT MATCHING LOOK)
+   ============================================================ */
+.PWrapper .PTabs .PTab .TOptions .Slider {
+    position: relative;
+    display: flex;
+    right: .15vw;
+    width: 2.3438vw;
+    height: .2083vw;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #1e1e1e;
+    border-radius: .2604vw;
+}
+
+.PWrapper .PTabs .PTab .TOptions .Slider .Progress {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    border-radius: .2604vw;
+}
+
+.PWrapper .PTabs .PTab .TOptions .Slider .Progress .Thumb {
+    position: absolute;
+    display: flex;
+    right: 0vw;
+    width: .4167vw;
+    height: .4167vw;
+    background-color: #fff;
+    border-radius: .5208vw;
+}
+
+
+/* === EMBEDDED / SUNKEN TRACK === */
+.PWrapper .PTabs .PTab .Slider {
+    position: absolute;
+    display: flex;
+    right: .65vw;
+    width: 2.3438vw;
+    height: .2083vw;
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: #161616;
+    border-radius: .2604vw;
+
+    /* REAL inset effect */
+    box-shadow:
+        inset 0 .12vw .22vw rgba(0,0,0,0.85),
+        inset 0 -.12vw .22vw rgba(255,255,255,0.08),
+        0 0 .15vw rgba(0,0,0,0.8);
+}
+
+/* === EMBEDDED PROGRESS BAR === */
+.PWrapper .PTabs .PTab .Slider .Progress {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    background: #e1e1e1;
+    border-radius: .2604vw;
+
+    box-shadow:
+        inset 0 .1vw .2vw rgba(0,0,0,0.55),
+        inset 0 -.08vw .18vw rgba(255,255,255,0.25);
+}
+
+/* === THUMB WITH DEEP EMBEDDED BUTTON LOOK === */
+.PWrapper .PTabs .PTab .Slider .Progress .Thumb {
+    position: absolute;
+    display: flex;
+    right: 0vw;
+    width: .4167vw;
+    height: .4167vw;
+
+    background-color: #fafafa;
+    border-radius: .5208vw;
+
+    /* Deep inset + outer glow */
+    box-shadow:
+        inset 0 .1vw .18vw rgba(0,0,0,0.6),
+        inset 0 -.1vw .2vw rgba(255,255,255,0.4),
+        0 0 .25vw rgba(255,255,255,0.35),
+        0 0 .35vw rgba(0,0,0,0.4);
+}
+
+
+.PWrapper .PTabs .PTab .Scrollable {
+    position: absolute;
+    display: flex;
+    right: .65vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw;
+    font-size: .625vw;
+    font-weight: 250;
+    color: #fff
+}
+
+.PWrapper .PTabs .PTab .Divider {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    width: 92%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw
+}
+
+.PWrapper .PTabs .PTab .Divider .Left,.PWrapper .PTabs .PTab .Divider .Right {
+    position: relative;
+    display: flex;
+    width: 15%;
+    height: .2083vw;
+    background-color: #e1e1e1;
+    border-radius: 5vw;
+    min-width: 0
+}
+
+.PWrapper .PTabs .PTab .Divider .Label {
+    position: relative;
+    display: flex;
+    font-size: .625vw;
+    font-weight: 300;
+    color: #e1e1e1;
+    white-space: nowrap;
+    padding: 0 .5vw
+}
+
+.PWrapper .Metadata {
+    position: absolute;
+    display: flex;
+    width: 13.8021vw;        /* SAME SIZE */
+    right: -15.65vw;         /* small nudge right (cleaner align) */
+    top: -5.45vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .2083vw;
+
+    /* Darker, smoother, no blur distortion */
+    background: rgba(0, 0, 0, 0.78);
+
+    /* Very clean dark green border (NOT thick) */
+    border: .10vw solid rgba(var(--menu-color), 0.55);
+
+    /* Soft outer glow for premium look */
+    box-shadow:
+        0 0 .42vw rgba(0, 75, 30, 0.45),
+        inset 0 0 .26vw rgba(0, 0, 0, 0.55);
+
+    border-radius: .2604vw;  /* SAME RADIUS */
+    padding: .5208vw;        /* SAME PADDING */
+}
+
+
+.PWrapper .Metadata .Title {
+    position: relative;
+    display: flex;
+    width: 98%;
+    height: .7813vw;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fffc
+}
+
+.PWrapper .Metadata .Title span {
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 350;
+    font-size: .625vw;
+    line-height: .7813vw;
+    text-align: center
+}
+
+.PWrapper .Metadata .Line {
+    position: relative;
+    display: flex;
+    width: 98%;
+    height: .013vw;
+    margin-top: .2083vw;
+    background-color: #ffffff40
+}
+
+.PWrapper .Metadata .Values {
+    position: relative;
+    display: flex;
+    width: 98%;
+    margin-top: .3125vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .2604vw
+}
+
+.PWrapper .Metadata .Values .Value {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.PWrapper .Metadata .Values .Value .Key {
+    position: relative;
+    display: flex;
+    height: .7813vw;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .625vw;
+    line-height: .7813vw;
+    align-items: center;
+    color: #fff
+}
+
+.PWrapper .Metadata .Values .Value .Val {
+    position: absolute;
+    display: flex;
+    right: 0vw;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw
+}
+
+.PWrapper .Metadata .Values .Value .Val span {
+    height: .7813vw;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 250;
+    font-size: .625vw;
+    line-height: .7813vw;
+    align-items: center;
+    color: #fff
+}
+
+.PWrapper .Metadata .Values .Value .Val .Status {
+    position: relative;
+    display: flex;
+    width: .2604vw;
+    height: .7813vw;
+    background-color: #000;
+    border-radius: .0781vw;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden
+}
+
+.PWrapper .Metadata .Values .Value .Val .Status .Progress {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    bottom: 0vw;
+    transition: .25s height
+}
+
+.PWrapper .PFooter {
+    position: relative;
+    display: flex;
+    width: 19.0104vw;
+    height: 1.5625vw;
+    margin-top: .2083vw;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border-radius: 0vw !important;
+}
+
+/* LOGO */
+.PWrapper .PFooter img {
+    position: absolute;
+    left: .3vw;
+    width: 1.0417vw;
+}
+
+/* BUILD TEXT — MOVED RIGHT */
+.PWrapper .PFooter .PBuild {
+    position: absolute;
+    left: 2.2vw;     /* ⬅️ previously 0.5vw — now shifted right cleanly */
+    font-size: .625vw;
+    font-weight: 250;
+    color: #fff;
+}
+
+/* RIGHT INDICATOR */
+.PWrapper .PFooter .PIndicator {
+    position: absolute;
+    right: .5vw;
+    font-size: .625vw;
+    font-weight: 250;
+    color: #fff;
+}
+
+/* ============================================================
+   NOTIFICATION WRAPPER
+   ============================================================ */
+.NotificationsWrapper {
+    position: fixed;
+    bottom: .6vw;
+    right: .6vw;
+    display: flex;
+    flex-direction: column;
+    gap: .45vw;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+/* ============================================================
+   NEW NOTIFICATION BASE — CLEAN RECTANGLE
+   ============================================================ */
+.Notification {
+    position: relative;
+    width: 19vw;
+    padding: .75vw .9vw;
+
+    display: flex;
+    align-items: center;
+    gap: .55vw;
+
+    pointer-events: auto;
+
+    /* ⬛ CLEAN BLACK BOX */
+    background: rgba(0, 0, 0, 0.90);
+
+    /* 🟩 DARK GREEN BORDER */
+    border: .12vw solid rgba(0, 75, 30, 0.85);
+
+    /* ✨ SUBTLE GREEN GLOW */
+    box-shadow:
+        0 0 .4vw rgba(0, 255, 120, 0.15),
+        inset 0 0 .25vw rgba(0, 255, 120, 0.15);
+
+    /* ⬜ SHARP CORNERS (NO ROUNDED EDGES) */
+    border-radius: .15vw;
+
+    color: #fff;
+    font-family: Inter;
+
+    opacity: 0;
+    transform: translateY(1.2vw) translateX(140%);
+    transition: opacity .25s ease, transform .85s cubic-bezier(.19,1,.22,1);
+}
+
+/* Remove side tabs completely */
+.Notification::before,
+.Notification::after {
+    display: none !important;
+}
+
+/* Enter / Exit animations */
+.Notification.enter {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+.Notification.exit {
+    opacity: 0;
+    transform: translateY(1.2vw) translateX(30%);
+}
+
+/* ============================================================
+   ICON
+   ============================================================ */
+.Notification i {
+    font-size: 1.15vw;
+    opacity: .9;
+    margin-left: .1vw;
+    flex-shrink: 0;
+    color: rgb(0, 255, 120);
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+.Notification .NotificationTitle {
+    font-size: .78vw;
+    font-weight: 700;
+    color: rgb(0, 255, 120);
+}
+
+.Notification .NotificationDesc {
+    font-size: .64vw;
+    color: #e5e5e5;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+.Notification .NotificationProgress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: .19vw;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 255, 120, 1),
+        rgba(0, 160, 70, 1)
+    );
+    border-radius: 0 0 .15vw .15vw;
+    animation-timing-function: linear;
+}
+
+
+
+@keyframes progress {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+
+@keyframes progress {
+    0% {
+        width: 100%
+    }
+
+    to {
+        width: 0%
+    }
+}
+
+.Overlay {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #0009
+}
+
+.InputWrapper {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    bottom: 8vw;
+    width: 26.0417vw;
+    height: auto;
+    transform: translate(-50%);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    font-family: Inter;
+    border-radius: .2604vw;
+    overflow: hidden
+}
+
+.InputWrapper .Header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1.3021vw;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw;
+    border-bottom: .0521vw solid rgb(var(--menu-color));
+    font-size: .625vw;
+    font-weight: 230;
+    color: #fff
+}
+
+.InputWrapper .Header img {
+    width: 1.4583vw;
+    height: 1.25vw;
+    margin-left: .3vw;
+    margin-right: -.25vw
+}
+
+.InputWrapper .Header .Line {
+    width: .0521vw;
+    height: .7813vw;
+    background-color: #ffffff40
+}
+
+.InputWrapper .Header i {
+    margin-left: .5vw
+}
+
+.InputWrapper .Body {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1.8229vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: .2604vw;
+    background-color: #0f0f0f;
+    font-size: .625vw;
+    font-weight: 230;
+    color: #fff
+}
+
+.InputWrapper .Body .InsideCon {
+    position: absolute;
+    display: flex;
+    width: 98.25%;
+    height: 72%;
+    margin-bottom: .0521vw;
+    background-color: #191919;
+    border-radius: .1042vw;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.InputWrapper .Body span {
+    position: absolute;
+    display: flex;
+    left: .45vw
+}
+
+.InputWrapper .Body .InsideCon span:after {
+    content: "";
+    display: inline-block;
+    width: .0521vw;
+    height: .6vw;
+    background-color: #fff;
+    margin-left: .1vw;
+    margin-bottom: .0521vw;
+    animation: blink 1s steps(2,start) infinite;
+    align-self: center
+}
+
+@keyframes blink {
+    to {
+        visibility: hidden
+    }
+}
+
+.KBLWrapper {
+    position: absolute;
+    display: flex;
+    right: 1.0417vw;
+    top: 1.0417vw;
+    width: 7.0313vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Inter;
+    border-radius: .1563vw;
+    overflow: hidden
+}
+
+.KBLWrapper .Header {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 1.0417vw;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #000c;
+    border-bottom: .0521vw solid rgb(var(--menu-color))
+}
+
+.KBLWrapper .Header .Icon {
+    margin-left: .25vw;
+    color: rgb(var(--menu-color))
+}
+
+.KBLWrapper .Header span {
+    margin-left: .1042vw;
+    font-size: .5208vw;
+    font-weight: 350;
+    color: #fff
+}
+
+.KBLWrapper .Keybinds {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .2083vw;
+    background-color: #00000080;
+    padding: .1042vw
+}
+
+.KBLWrapper .Keybinds .Keybind {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: .7813vw;
+    justify-content: flex-start;
+    align-items: center
+}
+
+.KBLWrapper .Keybinds .Keybind .Label {
+    position: absolute;
+    display: flex;
+    left: .25vw;
+    font-size: .5208vw;
+    font-weight: 350;
+    color: #fff
+}
+
+.KBLWrapper .Keybinds .Keybind .Elements {
+    position: absolute;
+    display: flex;
+    right: .25vw;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    gap: .1042vw
+}
+
+.KBLWrapper .Keybinds .Keybind .Elements span {
+    font-size: .5208vw;
+    font-weight: 350;
+    color: #fff
+}
+
+.Crosshair {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    top: 50%;
+    width: 1.25vw;
+    transform: translate(-50%,-50%);
+    color: #fff
+}
+
+.FCWrapper {
+    position: absolute;
+    display: flex;
+    left: 50%;
+    bottom: 4vw;
+    max-height: 13.0208vw;
+    transform: translate(-50%);
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    font-family: Inter;
+    gap: .32vw; /* slightly bigger spacing */
+    overflow: visible; /* removes the bottom fade / clipping */
+}
+
+/* ================================================
+   BASE OPTION — FODO PREMIUM STYLE
+   ================================================ */
+.FCWrapper .Option {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 1.05vw;              /* slightly larger, clean */
+    font-weight: 650;               /* bolder but not fat */
+    letter-spacing: .02vw;
+
+    color: #ffffff;
+
+    /* cleaner, tighter shadows for max readability */
+    text-shadow:
+        0 0 .18vw rgba(0,0,0,0.85),
+        0 0 .26vw rgba(0,0,0,0.75),
+        0 0 .40vw rgba(0,0,0,0.65);
+
+    opacity: 1 !important;
+    transform: translateZ(0);       /* smooth anti-aliasing */
+}
+
+
+/* ================================================
+   HTML SPAN WRAPPER FOR INLINE STYLING
+   ================================================ */
+.FCText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .32vw;                     /* perfect spacing */
+    width: 100%;
+    pointer-events: none;           /* no weird highlights */
+}
+
+
+/* ================================================
+   GREEN DASHES
+   ================================================ */
+.FCdash {
+    color: rgb(0, 87, 48);
+    font-weight: 750;
+    text-shadow:
+        0 0 .25vw rgba(0, 87, 48, 0.55),
+        0 0 .45vw rgba(0, 87, 48, 0.35);
+}
+
+
+/* ================================================
+   GREEN CYCLE VALUE (WEAPON_PISTOL)
+   ================================================ */
+.CycleHighlight {
+    color: rgb(0, 87, 48);
+    font-weight: 800;
+    text-shadow:
+        0 0 .25vw rgba(0, 87, 48, 0.55),
+        0 0 .45vw rgba(0, 87, 48, 0.35);
+}
+
+
+/* ================================================
+   ACTIVE / SELECTED OPTION
+   ================================================ */
+.FCWrapper .Option.Selected {
+    color: #ffffff;
+    font-weight: 800;
+
+    /* super clean premium glow */
+    text-shadow:
+        0 0 .25vw rgba(0,0,0,0.9),
+        0 0 .45vw rgba(0,0,0,0.75),
+        0 0 .85vw rgba(0,0,0,0.6),
+        0 0 1.1vw rgba(0,0,0,0.45);
+    
+    transform: scale(1.03);      /* tiny smooth pop */
+    transition: transform .12s ease-out;
+}
+
+html {
+    color-scheme: normal!important
+}
+
+body {
+    background: none!important;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh;
+    user-select: none;
+    overflow: hidden!important
+}
+
+p {
+    margin: 0
+}
+
+#root {
+    height: 100%
+}
+
+code {
+    font-family: source-code-pro,Menlo,Monaco,Consolas,Courier New,monospace
+}
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0
+}
+
+/* ========== Thème blanc (FODO + FiveM DUI) ========== */
+:root {
+    --menu-color: 100, 100, 100 !important;
+}
+.Desc {
+    background-color: rgba(255,255,255,0.92) !important;
+    color: #111 !important;
+    border: 1px solid rgba(0,0,0,0.08);
+}
+.PWrapper .PElements .PScroll {
+    background: #f0f0f0 !important;
+    box-shadow: inset 0 0 .15vw rgba(0,0,0,0.06), 0 0 .2vw rgba(0,0,0,0.04) !important;
+}
+.PWrapper .PElements .PScroll i {
+    color: rgba(30,30,30,0.75) !important;
+    text-shadow: none !important;
+}
+.PWrapper .PCategories {
+    background-color: #fff !important;
+    border-left-color: #e5e5e5 !important;
+    border-right-color: #e5e5e5 !important;
+    border-bottom-color: #e5e5e5 !important;
+}
+.PWrapper .PCategories .PCategory {
+    color: #222 !important;
+}
+.PWrapper .PTabs {
+    background-color: rgba(255,255,255,0.97) !important;
+    border: 1px solid #eee;
+}
+.PWrapper .PTabs .PTab .PTLabel,
+.PWrapper .PTabs .PTab .PTDLabel,
+.PWrapper .PTabs .PTab i,
+.PWrapper .PTabs .PTab .TOptions .Scrollable,
+.PWrapper .PTabs .PTab .Scrollable {
+    color: #1a1a1a !important;
+}
+.PWrapper .PTabs .PTab .TOptions .Checkbox,
+.PWrapper .PTabs .PTab .Checkbox {
+    background: #e8e8e8 !important;
+    box-shadow: inset 0 .08vw .15vw rgba(0,0,0,0.12) !important;
+}
+.PWrapper .PTabs .PTab .TOptions .Checkbox .Inside,
+.PWrapper .PTabs .PTab .Checkbox .Inside {
+    background: #fff !important;
+}
+.PWrapper .PTabs .PTab .TOptions .Slider,
+.PWrapper .PTabs .PTab .Slider {
+    background-color: #ddd !important;
+}
+.PWrapper .PTabs .PTab .Slider .Progress {
+    background: #bbb !important;
+}
+.PWrapper .PTabs .PTab .Divider .Label {
+    color: #666 !important;
+}
+.PWrapper .Metadata {
+    background: rgba(255,255,255,0.95) !important;
+    border-color: rgba(100,100,100,0.35) !important;
+    box-shadow: 0 0 .35vw rgba(0,0,0,0.08) !important;
+}
+.PWrapper .Metadata .Title,
+.PWrapper .Metadata .Values .Value .Key,
+.PWrapper .Metadata .Values .Value .Val span {
+    color: #222 !important;
+}
+.PWrapper .PFooter {
+    background-color: #fff !important;
+    border-top: 1px solid #eee;
+}
+.PWrapper .PFooter .PBuild,
+.PWrapper .PFooter .PIndicator {
+    color: #333 !important;
+}
+.Notification {
+    background: rgba(255,255,255,0.96) !important;
+    border-color: rgba(180,180,180,0.9) !important;
+    color: #111 !important;
+    box-shadow: 0 .2vw .5vw rgba(0,0,0,0.08) !important;
+}
+.Notification i {
+    color: #444 !important;
+}
+.Notification .NotificationTitle {
+    color: #111 !important;
+}
+.Notification .NotificationDesc {
+    color: #444 !important;
+}
+.Notification .NotificationBorder {
+    background-color: #ccc !important;
+}
+.Overlay {
+    background-color: rgba(255,255,255,0.4) !important;
+}
+.InputWrapper {
+    background-color: #fff !important;
+    border: 1px solid #e0e0e0;
+}
+.InputWrapper .Header,
+.InputWrapper .Body {
+    color: #111 !important;
+}
+.InputWrapper .Body .InsideCon {
+    background-color: #f5f5f5 !important;
+}
+.KBLWrapper .Header {
+    background-color: #fff !important;
+    border-bottom-color: #ddd !important;
+}
+.KBLWrapper .Keybinds {
+    background-color: #fafafa !important;
+}
+.KBLWrapper .Keybinds .Keybind .Label,
+.KBLWrapper .Keybinds .Keybind .Elements span,
+.KBLWrapper .Header span {
+    color: #222 !important;
+}
+.FCWrapper .Option {
+    color: #fff !important;
+    text-shadow: 0 0 .2vw rgba(0,0,0,0.5), 0 0 .4vw rgba(0,0,0,0.35) !important;
+}
+.FCdash, .CycleHighlight {
+    color: rgb(240,240,240) !important;
+    text-shadow: 0 0 .2vw rgba(0,0,0,0.4) !important;
+}
+
